@@ -26,26 +26,42 @@ function deleteList (num) {
   lists = lists.filter(te => {
     return te["listId"] != num
   });
-  
+
   refreshList();
-}
+};
 
 function refreshList () {
   let li = ``;
 
-  for (let i=0; i < lists.length; i++){
-    li += `<li style="color: ${lists[i]['listColour']}">
-          <p>${lists[i]['listName']}</p>
-          <button type="button" class="icon-btn" onclick="deleteList(${lists[i]['listId']})">
-          <i class="fas fa-trash"></i>
-          </button>
-          </li>`;
-  }
+  for (let i = 0; i < lists.length; i++) {
+    li += `<li>
+            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="expand()">
+            ${ lists[i]['listName'] }
+            </button>
+            <button type="button" class="icon-btn" onclick="deleteList(${lists[i]['listId']})">
+            <i class="fas fa-trash"></i>
+            </button>
+          </li> `;
+  };
+
   ul.innerHTML = li;
+
+  if ( lists.length == 1 ) {
+    numberLists.innerHTML = `${ lists.length } List`;
+  } else {
+    numberLists.innerHTML = `${ lists.length } Lists`;
+  };
+
+};
+
+function expand (div) {
+  if 
 }
 
-const ul = document.getElementById("ullist");
 
+const ul = document.getElementById( "ullist" );
+const numberLists = document.getElementById( "numberList" );
 
-let lists = []
+let lists = [];
 let counter = 0;
+refreshList();

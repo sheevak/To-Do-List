@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>To Do List</title>
+    <title>All Lists</title>
     <link rel="stylesheet" href="normalise.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Karla">
   	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/73d345f91c.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
     <header>
-      <h1>To Do Lists</h1>
+        <h1>All Lists</h1>
+        <h3 id="numberList"></h3>
+
     </header>
 
     <div class="home">
@@ -20,12 +23,12 @@
 
           <select name="colour" id="listColour" class="fa">
             <option value="" selected disabled>----</option>
-            <option value="grey" class="fa">&#xf0c8;</option>
+            <option value="black" class="fa">&#xf0c8;</option>
             <option value="red" class="fa">&#xf0c8;</option>
             <option value="blue" class="fa">&#xf0c8;</option>
             <option value="green" class="fa">&#xf0c8;</option>
             <option value="orange" class="fa">&#xf0c8;</option>
-            <option value="yellow" class="fa">&#xf0c8;</option>
+            <option value="purple" class="fa">&#xf0c8;</option>
           </select>
 
           <button type="button" class="btn" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
@@ -36,6 +39,12 @@
       <div class="lists">
         <ul id="ullist">
           <!-- <li> elements will be added here as new lists are added by the user -->
+          <!-- <li style="color: colour">
+                <p>list name</p>
+                <button type="button" class="icon-btn" onclick="deleteList(list id)">
+                  <i class="fas fa-trash"></i>
+                </button>
+                </li>-->
         </ul>
       </div>
 
