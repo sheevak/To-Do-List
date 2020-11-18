@@ -2,34 +2,69 @@
 <html>
   <head>
     <title>To Do List</title>
-		<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalise.css">
+  	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/73d345f91c.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
     <header>
-      <h1>To Do List</h1>
-      <h2>DATE</h2>
+      <h1>To Do Lists</h1>
     </header>
-    <div class="tasks">
-      <ul>
-        <li>
-          <p>Task 1</p>
-          <i class="fas fa-trash"></i>
-        </li>
-        <li>
-          <p>Task 1</p>
-          <i class="fas fa-trash"></i>
-        </li>
-      </ul>
-    </div>
-    <div class="add-task">
+
+    <div class="home">
+      <div class="add-list">
+
+        <form action="form.html" method="post">
+
+          <input type="text" id="listName">
+
+          <select name="colour" id="listColour" class="fa">
+            <option value="" selected disabled>----</option>
+            <option value="grey" class="fa">&#xf0c8;</option>
+            <option value="red" class="fa">&#xf0c8;</option>
+            <option value="blue" class="fa">&#xf0c8;</option>
+            <option value="green" class="fa">&#xf0c8;</option>
+            <option value="orange" class="fa">&#xf0c8;</option>
+            <option value="yellow" class="fa">&#xf0c8;</option>
+          </select>
+
+          <button type="button" class="btn" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
+
+        </form>
+      </div>
+
+      <div class="lists">
+        <ul id="ullist">
+          <!-- <li> elements will be added here as new lists are added by the user -->
+        </ul>
+      </div>
 
     </div>
 
+    <!-- <div class="list1">
+      <div class="tasks">
+        <ul>
+          <li>
+            <i class="far fa-square"></i>
+            <p>Task 1</p>
+            <i class="fas fa-trash"></i>
+          </li>
+          <li>
+            <i class="far fa-check-square"></i>
+            <strike>Task 2</strike>
+            <i class="fas fa-trash"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="add-task">
+
+      </div>
+    </div> -->
 
 
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 	</body>
 </html>
