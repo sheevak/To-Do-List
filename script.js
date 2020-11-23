@@ -34,9 +34,10 @@ function refreshList () {
   let li = ``;
 
   for (let i = 0; i < lists.length; i++) {
+    let na = lists[i]['listName'];
     li += `<li>
-            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="expand()">
-            ${ lists[i]['listName'] }
+            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="expand('${na}')">
+            ${na}
             </button>
             <button type="button" class="icon-btn" onclick="deleteList(${lists[i]['listId']})">
             <i class="fas fa-trash"></i>
@@ -53,11 +54,6 @@ function refreshList () {
   };
 
 };
-
-function expand (div) {
-  if 
-}
-
 
 const ul = document.getElementById( "ullist" );
 const numberLists = document.getElementById( "numberList" );
