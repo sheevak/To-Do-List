@@ -9,8 +9,8 @@
 	</head>
 	<body>
 
-    <!-- ========================= Home Page =============================== -->
-    <div class="homePage">
+    <!-- ========================= Home Page ============================ -->
+    <div id="homePage">
       <div class="header">
           <h1>All Lists</h1>
           <h3 id="numberList"></h3>
@@ -45,6 +45,68 @@
 
     </div>
 
+    <!-- ============================= Pages ============================ -->
+
+    <div id="listPage" class="hidden">
+
+      <div id="listnamepage">
+
+        <div class="header" id="listhead">
+          <button type="button" class="home" onclick="switchPage()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <h1 id="listtitle">List Name</h1>
+        </div>
+
+        <div class="tasks">
+          <ul id="ultask">
+            <!-- <li>
+              <button type="button" class="done" id="icon1" onclick="donetoggle('icon1', 'text1')">
+                <i class="far fa-square"></i>
+              </button>
+              <p id="text1">Task 1</p>
+              <i class="fas fa-trash"></i>
+            </li>
+            <li>
+              <button type="button" class="done" id="icon1" onclick="donetoggle('icon1', 'text1')">
+                <i class="far fa-square"></i>
+              </button>
+              <p id="text1">Task 1</p>
+              <i class="fas fa-trash"></i>
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="add-list">
+          <form action="form.html" method="post">
+            <input type="text" id="taskName">
+            <button type="button" class="btn" onclick="addTask(this.form)">
+              <i class="fas fa-plus"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ========================= Scripts ============================== -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>

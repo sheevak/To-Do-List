@@ -12,7 +12,8 @@ function addList (form) {
   const newlist = {
     listName: form.listName.value,
     listColour: form.listColour.value,
-    listId: counter
+    listId: counter,
+    tasks: []
   };
 
   lists.push(newlist);
@@ -34,10 +35,9 @@ function refreshList () {
   let li = ``;
 
   for (let i = 0; i < lists.length; i++) {
-    let na = lists[i]['listName'];
     li += `<li>
-            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="expand('${na}')">
-            ${na}
+            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="editPage(${i})">
+            ${lists[i]['listName']}
             </button>
             <button type="button" class="icon-btn" onclick="deleteList(${lists[i]['listId']})">
             <i class="fas fa-trash"></i>
@@ -45,7 +45,7 @@ function refreshList () {
           </li> `;
   };
 
-  ul.innerHTML = li;
+  ullist.innerHTML = li;
 
   if ( lists.length == 1 ) {
     numberLists.innerHTML = `${ lists.length } List`;
@@ -55,9 +55,40 @@ function refreshList () {
 
 };
 
-const ul = document.getElementById( "ullist" );
+function switchPage () {
+  const homePage = document.getElementById("homePage");
+  const listPage = document.getElementById("listPage");
+  homePage.classList.toggle("hidden");
+  listPage.classList.toggle("hidden");
+}
+
+function editPage (index) {
+  switchPage()
+
+  document.getElementById("listhead").style.background = lists[index]["listColour"];
+  document.getElementById("listtitle").innerHTML = lists[index]["listName"];
+
+  let task = ``;
+
+  for (let i = 0; i < lists[index]["tasks"].length; i++) {
+    task += `<li>
+              <button type="button" onclick="">
+                <i class="far fa-square"></i>
+              </button>
+              <p>${lists[index]["tasks"][i]}</p>
+              <i class="fas fa-trash"></i>
+            </li>`
+  };
+
+  ultask.innerHTML = task;
+
+}
+
+const ullist = document.getElementById( "ullist" );
+const ultask = document.getElementById("ultask");
 const numberLists = document.getElementById( "numberList" );
 
 let lists = [];
 let counter = 0;
+let counterTask = 0;
 refreshList();
