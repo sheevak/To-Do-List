@@ -13,13 +13,17 @@ function addList (form) {
     listName: form.listName.value,
     listColour: form.listColour.value,
     listId: counter,
-    tasks: []
+    tasks: [],
+    completed: []
   };
 
   lists.push(newlist);
   console.log(lists);
   refreshList();
 
+  var frm = document.getElementsByName('listad')[0];
+  frm.reset();  // Reset all form data
+  document.getElementById("listColour").className = "fa";
 };
 
 function deleteList (num) {
@@ -63,19 +67,31 @@ function switchPage () {
 }
 
 function editPage (index) {
-  switchPage()
+  ind = index;
+  switchPage();
+  refreshPage();
+}
 
-  document.getElementById("listhead").style.background = lists[index]["listColour"];
-  document.getElementById("listtitle").innerHTML = lists[index]["listName"];
-
+function refreshPage () {
+  document.getElementById("listhead").style.background = lists[ind]["listColour"];
+  document.getElementById("listtitle").innerHTML = lists[ind]["listName"];
   let task = ``;
+  let sq;
 
-  for (let i = 0; i < lists[index]["tasks"].length; i++) {
+  for (let i = 0; i < lists[ind]["tasks"].length; i++) {
+    if (lists[ind]["completed"][i] == "no") {
+      sq = `<i class="far fa-square"></i>`;
+      tex = `<p>${lists[ind]["tasks"][i]}</p>`;
+    } else {
+      sq = `<i class="far fa-check-square"></i>`;
+      tex = `<p style="text-decoration: line-through">${lists[ind]["tasks"][i]}</p>`;
+    }
+
     task += `<li>
-              <button type="button" onclick="">
-                <i class="far fa-square"></i>
+              <button type="button" onclick="toggle(${i})">
+                ${sq}
               </button>
-              <p>${lists[index]["tasks"][i]}</p>
+              ${tex}
               <i class="fas fa-trash"></i>
             </li>`
   };
@@ -84,10 +100,34 @@ function editPage (index) {
 
 }
 
+function addTask (form) {
+
+  let newTask = form.taskName.value;
+
+  lists[ind]["tasks"].push(newTask);
+  lists[ind]["completed"].push("no");
+  refreshPage()
+  document.getElementById('taskName').value = "";
+
+}
+
+function toggle (j) {
+  if (lists[ind]["completed"][j] == "no") {
+    lists[ind]["completed"][j] = "yes"
+  } else {
+    lists[ind]["completed"][j] = "no";
+  }
+  refreshPage(ind)
+}
+
+function deleteTask () {
+
+}
+
 const ullist = document.getElementById( "ullist" );
 const ultask = document.getElementById("ultask");
 const numberLists = document.getElementById( "numberList" );
-
+let ind
 let lists = [];
 let counter = 0;
 let counterTask = 0;
