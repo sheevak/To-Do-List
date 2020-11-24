@@ -92,7 +92,9 @@ function refreshPage () {
                 ${sq}
               </button>
               ${tex}
-              <i class="fas fa-trash"></i>
+              <button type="button" onclick="deleteTask(${i})">
+                <i class="fas fa-trash"></i>
+              </button>
             </li>`
   };
 
@@ -101,14 +103,12 @@ function refreshPage () {
 }
 
 function addTask (form) {
-
   let newTask = form.taskName.value;
 
   lists[ind]["tasks"].push(newTask);
   lists[ind]["completed"].push("no");
   refreshPage()
   document.getElementById('taskName').value = "";
-
 }
 
 function toggle (j) {
@@ -117,11 +117,13 @@ function toggle (j) {
   } else {
     lists[ind]["completed"][j] = "no";
   }
-  refreshPage(ind)
+  refreshPage()
 }
 
-function deleteTask () {
-
+function deleteTask (i) {
+  lists[ind]["tasks"].splice(i,1);
+  lists[ind]["completed"].splice(i,1);
+  refreshPage();
 }
 
 const ullist = document.getElementById( "ullist" );
@@ -131,4 +133,3 @@ let ind
 let lists = [];
 let counter = 0;
 let counterTask = 0;
-refreshList();
