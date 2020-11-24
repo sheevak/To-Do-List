@@ -57,6 +57,8 @@ function refreshList () {
     numberLists.innerHTML = `${ lists.length } Lists`;
   };
 
+  localStorage.setItem('key2', JSON.stringify(lists))
+
 };
 
 function switchPage () {
@@ -100,6 +102,8 @@ function refreshPage () {
 
   ultask.innerHTML = task;
 
+  localStorage.setItem('key2', JSON.stringify(lists))
+
 }
 
 function addTask (form) {
@@ -126,10 +130,26 @@ function deleteTask (i) {
   refreshPage();
 }
 
+function clearAll () {
+  localStorage.removeItem("key2");
+  lists = [];
+  refreshList();
+}
+
 const ullist = document.getElementById( "ullist" );
 const ultask = document.getElementById("ultask");
 const numberLists = document.getElementById( "numberList" );
-let ind
-let lists = [];
-let counter = 0;
-let counterTask = 0;
+let data = localStorage.getItem("key2");
+let lists, ind, counter;
+
+if (data) {
+  lists = JSON.parse(data);
+  refreshList();
+} else {
+  lists = [];
+}
+
+counter = 0;
+
+
+localStorage.setItem('key2', JSON.stringify(lists))
