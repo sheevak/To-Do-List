@@ -4,16 +4,7 @@
   font-size: 1em;
 }
 
-/* --------------------- Header Styles  -------------------------- */
-.header {
-  width: 100%;
-  height: 150px;
-  background-color: #c1c1c1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+/* ========================= Font Styles =================================== */
 
 h1 {
   font-size: 4em;
@@ -23,6 +14,18 @@ h1 {
 h3 {
   font-size: 2.5em;
   margin: 10px;
+}
+
+/* ===================== Header Styles  ==================================== */
+
+.header {
+  width: 100%;
+  height: 150px;
+  background-color: #c1c1c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #clear {
@@ -35,48 +38,7 @@ h3 {
   background-color: white;
 }
 
-/* -------------------- List Page ------------------------------------- */
-
-ul {
-  padding: 0;
-  margin: 20px;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  height: 40px;
-  border-radius: 5px;
-  border-style: none;
-}
-
-.list-btn {
-  display: inline-block;
-  flex-grow: 1;
-  height: 40px;
-  margin-right: 10px;
-  padding: 0 20px;
-
-  background-color: inherit;
-  border-radius: 5px;
-  border-style: none;
-  text-align: left;
-  font-weight: bolder;
-}
-
-.delete-list {
-  display: inline-block;
-  background: none;
-  border: none;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-  margin-right: 10px;
-}
-
-
-/* -------------------- Add List Styles -------------------------- */
+/* ============================ Add List Styles ============================ */
 
 li {
   display: flex;
@@ -153,13 +115,53 @@ option[value="ddace8"] {
   color: #ddace8;
 }
 
+/* ========================= Lists ========================================= */
 
-/* ========================= Page styles ==================== */
+ul {
+  padding: 0;
+  margin: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  height: 40px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.list-btn {
+  display: inline-block;
+  flex-grow: 1;
+  height: 40px;
+  margin-right: 10px;
+  padding: 0 20px;
+
+  background-color: inherit;
+  border-radius: 5px;
+  border-style: none;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.delete-list {
+  display: inline-block;
+  background: none;
+  border: none;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+/* ========================= Page styles ================================== */
 .hidden {
   display: none;
 }
 
-/* ========================= List Page ====================== */
+/* ========================= Task Page ==================================== */
+
 #listhead {
   flex-direction: row;
   justify-content: flex-start;
@@ -179,6 +181,18 @@ option[value="ddace8"] {
   display: inline-block;
   flex-grow: 1;
 }
+
+.add-task {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100vw;
+}
+
+
+
+
+
 
 #container {
   max-width: 600px;
