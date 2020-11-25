@@ -61,16 +61,17 @@
           <h1 id="listtitle">List Name</h1>
         </div>
 
+
         <div class="tasks">
           <ul id="ultask">
             <!-- <li> elements will be added here as new tasks are added by the user -->
           </ul>
         </div>
 
-        <div class="add-task">
-          <form action="form.html" method="post">
-            <input type="text" id="taskName">
-            <button type="button" class="btn" onclick="addTask(this.form)">
+        <div id="add-task">
+          <form id="form-task" action="form.html" method="post">
+            <input type="text" id="taskName" placeholder="Add Item" >
+            <button type="button" class="submit-task" onclick="addTask(this.form)">
               <i class="fas fa-plus"></i>
             </button>
           </form>

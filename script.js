@@ -79,25 +79,26 @@ function editPage (index) {
 function refreshPage () {
   document.getElementById("listhead").style.background = `#${lists[ind]["listColour"]}`;
   document.getElementById("listtitle").innerHTML = lists[ind]["listName"];
+  document.getElementById("add-task").style.background = `#${lists[ind]["listColour"]}`;
   let task = ``;
   let sq;
 
   for (let i = 0; i < lists[ind]["tasks"].length; i++) {
     if (lists[ind]["completed"][i] == "no") {
       sq = `<i class="far fa-square"></i>`;
-      tex = `<p>${lists[ind]["tasks"][i]}</p>`;
+      tex = `<p class="task">${lists[ind]["tasks"][i]}</p>`;
     } else {
       sq = `<i class="far fa-check-square"></i>`;
-      tex = `<p style="text-decoration: line-through">${lists[ind]["tasks"][i]}</p>`;
+      tex = `<p class="task" style="text-decoration: line-through">${lists[ind]["tasks"][i]}</p>`;
     }
 
     task += `<li>
-              <button type="button" onclick="toggle(${i})">
+              <button type="button" class="toggle-task"onclick="toggle(${i})">
                 ${sq}
               </button>
               ${tex}
-              <button type="button" onclick="deleteTask(${i})">
-                <i class="far fa-trash"></i>
+              <button type="button" class="delete-task" onclick="deleteTask(${i})">
+                <i class="far fa-trash-alt"></i>
               </button>
             </li>`
   };
