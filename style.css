@@ -25,7 +25,17 @@ h3 {
   margin: 10px;
 }
 
-/* ---------------------------------------------------------------- */
+#clear {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: white;
+}
+
+/* -------------------- List Page ------------------------------------- */
 
 ul {
   padding: 0;
@@ -36,48 +46,73 @@ li {
   display: flex;
   align-items: center;
   margin: 10px;
-}
-
-i {
-  display: inline-block;
-}
-
-p,
-strike,
-h2,
-.list-expand {
-  display: inline-block;
-  flex-grow: 1;
-  margin-right: 10px;;
-  padding: 0 5px;
-  text-align: left;
-}
-
-.list-expand {
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   border-style: none;
+}
+
+.list-btn {
+  display: inline-block;
+  flex-grow: 1;
+  height: 40px;
+  margin-right: 10px;
+  padding: 0 20px;
+
+  background-color: inherit;
+  border-radius: 5px;
+  border-style: none;
+  text-align: left;
   font-weight: bolder;
-  background-color: none;
+}
+
+.delete-list {
+  display: inline-block;
+  background: none;
+  border: none;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+  margin-right: 10px;
 }
 
 
 /* -------------------- Add List Styles -------------------------- */
 
+li {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  height: 40px;
+  border-radius: 5px;
+  border-style: none;
+}
+
+form {
+  margin: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
 .add-list {
   font-size: 1.5em;
 }
 
-.btn {
-  background-color: grey;
+#listName {
+  border-radius: 5px;
+  border-style: solid;
+  height: 50px;
+  border-width: 1px;
+  flex-grow: 1;
+  margin: 10px;
+}
+
+.submit-list {
   border-radius: 10%;
   border-style: none;
   width: 50px;
   height: 50px;
-}
-
-.fa {
-  font-weight: 900;
+  margin: 10px;
 }
 
 select {
@@ -85,44 +120,37 @@ select {
   height: 50px;
   border-style: solid;
   border-radius: 10%;
+  margin: 10px 0;
 }
 
-select.black,
-option[value="black"] {
-  color: black;
+select.d4d4dd,
+option[value="d4d4dd"] {
+  color: #d4d4dd;
 }
 
-select.red,
-option[value="red"] {
-  color: red;
+select.e96464,
+option[value="e96464"] {
+  color: #e96464;
 }
 
-select.blue,
-option[value="blue"] {
-  color: blue;
+select.a7bfed,
+option[value="a7bfed"] {
+  color: #a7bfed;
 }
 
-select.green,
-option[value="green"] {
-  color: green;
+select.a7edb0,
+option[value="a7edb0"] {
+  color: #a7edb0;
 }
 
-select.orange,
-option[value="orange"] {
-  color: orange;
+select.e9bc64,
+option[value="e9bc64"] {
+  color: #e9bc64;
 }
 
-select.purple,
-option[value="purple"] {
-  color: purple;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  width: 25px;
-  height: 25px;
-  text-align: center;
+select.ddace8,
+option[value="ddace8"] {
+  color: #ddace8;
 }
 
 
@@ -150,4 +178,9 @@ option[value="purple"] {
 .listtitle {
   display: inline-block;
   flex-grow: 1;
+}
+
+#container {
+  max-width: 600px;
+  margin: auto;
 }

@@ -14,8 +14,8 @@
       <div class="header">
           <h1>All Lists</h1>
           <h3 id="numberList"></h3>
-          <button type="button" onclick="clearAll()">
-            clear all
+          <button type="button" onclick="clearAll()" id="clear">
+            Clear All
           </button>
       </div>
 
@@ -23,19 +23,19 @@
 
         <form name="listad" action="form.html" method="post">
 
-          <input type="text" id="listName">
+          <input type="text" id="listName" placeholder="List Name">
 
-          <select name="colour" id="listColour" class="fa">
-            <option value="" selected disabled>----</option>
-            <option value="black" class="fa">&#xf0c8;</option>
-            <option value="red" class="fa">&#xf0c8;</option>
-            <option value="blue" class="fa">&#xf0c8;</option>
-            <option value="green" class="fa">&#xf0c8;</option>
-            <option value="orange" class="fa">&#xf0c8;</option>
-            <option value="purple" class="fa">&#xf0c8;</option>
+          <select name="colour" id="listColour" class="fa" onchange="col(this.value)">
+            <option value="" selected disabled>---</option>
+            <option value="d4d4dd" class="fa">&#xf0c8;</option>
+            <option value="e96464" class="fa">&#xf0c8;</option>
+            <option value="a7bfed" class="fa">&#xf0c8;</option>
+            <option value="a7edb0" class="fa">&#xf0c8;</option>
+            <option value="e9bc64" class="fa">&#xf0c8;</option>
+            <option value="ddace8" class="fa">&#xf0c8;</option>
           </select>
 
-          <button type="button" class="btn" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
+          <button type="button" class="submit-list" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
 
         </form>
       </div>
@@ -63,20 +63,7 @@
 
         <div class="tasks">
           <ul id="ultask">
-            <!-- <li>
-              <button type="button" class="done" id="icon1" onclick="donetoggle('icon1', 'text1')">
-                <i class="far fa-square"></i>
-              </button>
-              <p id="text1">Task 1</p>
-              <i class="fas fa-trash"></i>
-            </li>
-            <li>
-              <button type="button" class="done" id="icon1" onclick="donetoggle('icon1', 'text1')">
-                <i class="far fa-square"></i>
-              </button>
-              <p id="text1">Task 1</p>
-              <i class="fas fa-trash"></i>
-            </li> -->
+            <!-- <li> elements will be added here as new tasks are added by the user -->
           </ul>
         </div>
 
@@ -91,20 +78,7 @@
 
       </div>
 
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
 
 
 

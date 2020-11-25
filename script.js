@@ -1,8 +1,11 @@
 
 // Changes colour of icon in select element based on colour of option selected.
-$('select').on('change', function(ev) {
-    $(this).attr('class', 'fa').addClass($(this).children(':selected').val());
-});
+
+
+function col (shade) {
+  document.getElementById("listColour").classList.add(shade);
+
+}
 
 // A function which adds new to do lists to home page
 function addList (form) {
@@ -18,7 +21,6 @@ function addList (form) {
   };
 
   lists.push(newlist);
-  console.log(lists);
   refreshList();
 
   var frm = document.getElementsByName('listad')[0];
@@ -39,16 +41,16 @@ function refreshList () {
   let li = ``;
 
   for (let i = 0; i < lists.length; i++) {
-    li += `<li>
-            <button type="button" class="list-expand" style="color: ${lists[i]['listColour'] }" onclick="editPage(${i})">
+    li += `<li style="background-color: #${lists[i]['listColour'] }">
+            <button type="button" class="list-btn" onclick="editPage(${i})">
             ${lists[i]['listName']}
             </button>
-            <button type="button" class="icon-btn" onclick="deleteList(${lists[i]['listId']})">
-            <i class="fas fa-trash"></i>
+            <button type="button" class="delete-list" onclick="deleteList(${lists[i]['listId']})">
+            <i class="far fa-trash-alt"></i>
             </button>
           </li> `;
   };
-
+listName
   ullist.innerHTML = li;
 
   if ( lists.length == 1 ) {
@@ -57,7 +59,7 @@ function refreshList () {
     numberLists.innerHTML = `${ lists.length } Lists`;
   };
 
-  localStorage.setItem('key2', JSON.stringify(lists))
+  localStorage.setItem('ToDoLists', JSON.stringify(lists))
 
 };
 
@@ -75,7 +77,7 @@ function editPage (index) {
 }
 
 function refreshPage () {
-  document.getElementById("listhead").style.background = lists[ind]["listColour"];
+  document.getElementById("listhead").style.background = `#${lists[ind]["listColour"]}`;
   document.getElementById("listtitle").innerHTML = lists[ind]["listName"];
   let task = ``;
   let sq;
@@ -95,14 +97,14 @@ function refreshPage () {
               </button>
               ${tex}
               <button type="button" onclick="deleteTask(${i})">
-                <i class="fas fa-trash"></i>
+                <i class="far fa-trash"></i>
               </button>
             </li>`
   };
 
   ultask.innerHTML = task;
 
-  localStorage.setItem('key2', JSON.stringify(lists))
+  localStorage.setItem('ToDoLists', JSON.stringify(lists))
 
 }
 
@@ -131,15 +133,18 @@ function deleteTask (i) {
 }
 
 function clearAll () {
-  localStorage.removeItem("key2");
-  lists = [];
-  refreshList();
+  if (confirm("Are you sure you want to clear all the saved lists?")){
+    localStorage.removeItem("ToDoLists");
+    lists = [];
+    refreshList();
+  }
+
 }
 
 const ullist = document.getElementById( "ullist" );
 const ultask = document.getElementById("ultask");
 const numberLists = document.getElementById( "numberList" );
-let data = localStorage.getItem("key2");
+let data = localStorage.getItem("ToDoLists");
 let lists, ind, counter;
 
 if (data) {
@@ -152,4 +157,4 @@ if (data) {
 counter = 0;
 
 
-localStorage.setItem('key2', JSON.stringify(lists))
+localStorage.setItem('ToDoLists', JSON.stringify(lists))
