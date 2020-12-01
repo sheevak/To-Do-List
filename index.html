@@ -19,7 +19,7 @@
           </button>
       </div>
 
-      <div class="add-list">
+      <div class="add-list container">
 
         <form name="listad" action="form.html" method="post">
 
@@ -40,7 +40,7 @@
         </form>
       </div>
 
-      <div class="lists">
+      <div class="lists container">
         <ul id="ullist">
           <!-- <li> elements will be added here as new lists are added by the user -->
         </ul>
@@ -62,14 +62,14 @@
         </div>
 
 
-        <div class="tasks">
+        <div class="tasks container">
           <ul id="ultask">
             <!-- <li> elements will be added here as new tasks are added by the user -->
           </ul>
         </div>
 
         <div id="add-task">
-          <form id="form-task" action="form.html" method="post">
+          <form  class="container" id="form-task" action="form.html" method="post">
             <input type="text" id="taskName" placeholder="Add Item" >
             <button type="button" class="submit-task" onclick="addTask(this.form)">
               <i class="fas fa-plus"></i>
