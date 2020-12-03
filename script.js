@@ -16,7 +16,7 @@ function addList (form) {
     listName: form.listName.value,
     listColour: form.listColour.value,
     listId: counter,
-    tasks: [],
+    items: [],
     completed: []
   };
 
@@ -41,7 +41,7 @@ function refreshList () {
   let li = ``;
 
   for (let i = 0; i < lists.length; i++) {
-    li += `<li style="background-color: #${lists[i]['listColour'] }">
+    li += `<li class="list-entry" style="background-color: #${lists[i]['listColour'] }">
             <button type="button" class="list-btn" onclick="editPage(${i})">
             ${lists[i]['listName']}
             </button>
@@ -50,13 +50,13 @@ function refreshList () {
             </button>
           </li> `;
   };
-listName
-  ullist.innerHTML = li;
+
+  savedLists.innerHTML = li;
 
   if ( lists.length == 1 ) {
-    numberLists.innerHTML = `${ lists.length } List`;
+    numberList.innerHTML = `${ lists.length } List`;
   } else {
-    numberLists.innerHTML = `${ lists.length } Lists`;
+    numberList.innerHTML = `${ lists.length } Lists`;
   };
 
   localStorage.setItem('ToDoLists', JSON.stringify(lists))
@@ -78,44 +78,44 @@ function editPage (index) {
 
 function refreshPage () {
   document.getElementById("listhead").style.background = `#${lists[ind]["listColour"]}`;
-  document.getElementById("listtitle").innerHTML = lists[ind]["listName"];
-  document.getElementById("add-task").style.background = `#${lists[ind]["listColour"]}`;
-  let task = ``;
+  document.getElementById("list-title").innerHTML = lists[ind]["listName"];
+  document.getElementById("add-item").style.background = `#${lists[ind]["listColour"]}`;
+  let item = ``;
   let sq;
 
-  for (let i = 0; i < lists[ind]["tasks"].length; i++) {
+  for (let i = 0; i < lists[ind]["items"].length; i++) {
     if (lists[ind]["completed"][i] == "no") {
       sq = `<i class="far fa-square"></i>`;
-      tex = `<p class="task">${lists[ind]["tasks"][i]}</p>`;
+      tex = `<p class="item">${lists[ind]["items"][i]}</p>`;
     } else {
       sq = `<i class="far fa-check-square"></i>`;
-      tex = `<p class="task" style="text-decoration: line-through">${lists[ind]["tasks"][i]}</p>`;
+      tex = `<p class="item" style="text-decoration: line-through">${lists[ind]["items"][i]}</p>`;
     }
 
-    task += `<li>
-              <button type="button" class="toggle-task"onclick="toggle(${i})">
+    item += `<li class="item-entry">
+              <button type="button" class="toggle-item" onclick="toggle(${i})">
                 ${sq}
               </button>
               ${tex}
-              <button type="button" class="delete-task" onclick="deleteTask(${i})">
+              <button type="button" class="delete-item" onclick="deleteItem(${i})">
                 <i class="far fa-trash-alt"></i>
               </button>
             </li>`
   };
 
-  ultask.innerHTML = task;
+  savedItems.innerHTML = item;
 
   localStorage.setItem('ToDoLists', JSON.stringify(lists))
 
 }
 
-function addTask (form) {
-  let newTask = form.taskName.value;
+function addItem (form) {
+  let newItem = form.itemName.value;
 
-  lists[ind]["tasks"].push(newTask);
+  lists[ind]["items"].push(newItem);
   lists[ind]["completed"].push("no");
   refreshPage()
-  document.getElementById('taskName').value = "";
+  document.getElementById('itemName').value = "";
 }
 
 function toggle (j) {
@@ -127,8 +127,8 @@ function toggle (j) {
   refreshPage()
 }
 
-function deleteTask (i) {
-  lists[ind]["tasks"].splice(i,1);
+function deleteItem (i) {
+  lists[ind]["items"].splice(i,1);
   lists[ind]["completed"].splice(i,1);
   refreshPage();
 }
@@ -142,9 +142,9 @@ function clearAll () {
 
 }
 
-const ullist = document.getElementById( "ullist" );
-const ultask = document.getElementById("ultask");
-const numberLists = document.getElementById( "numberList" );
+const savedLists = document.getElementById( "savedLists" );
+const savedItems = document.getElementById("savedItems");
+const numberList = document.getElementById( "numberList" );
 let data = localStorage.getItem("ToDoLists");
 let lists, ind, counter;
 

@@ -16,18 +16,26 @@ h3 {
   margin: 10px;
 }
 
-/* ===================== Header Styles  ==================================== */
+/* ========================== Header Styles  =============================== */
 
 .header {
   width: 100%;
   height: 150px;
-  background-color: #c1c1c1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  background-color: #c1c1c1;
 }
 
+/* ========================== Page styles ================================== */
+.hidden {
+  display: none;
+}
+
+/* ========================== Home Page Styles =========================== */
+
+/* header styles */
 #clear {
   position: absolute;
   top: 20px;
@@ -38,17 +46,7 @@ h3 {
   background-color: white;
 }
 
-/* ============================ Add List Styles ============================ */
-
-li {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  height: 40px;
-  border-radius: 5px;
-  border-style: none;
-}
-
+/* Add list styles */
 form {
   margin: 20px;
   padding: 0;
@@ -56,33 +54,19 @@ form {
   justify-content: center;
 }
 
-.add-list {
-  font-size: 1.5em;
+form > * {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.5em
 }
 
 #listName {
-  border-radius: 5px;
-  border-style: solid;
-  height: 50px;
-  border-width: 1px;
   flex-grow: 1;
-  margin: 10px;
-}
-
-.submit-list {
-  border-radius: 10%;
-  border-style: none;
-  width: 50px;
-  height: 50px;
-  margin: 10px;
-}
-
-select {
-  width: 50px;
-  height: 50px;
-  border-style: solid;
-  border-radius: 10%;
-  margin: 10px 0;
+  padding-left: 10px;
 }
 
 select.d4d4dd,
@@ -115,11 +99,12 @@ option[value="ddace8"] {
   color: #ddace8;
 }
 
-/* ========================= Lists ========================================= */
+/* List styles */
 
 ul {
   padding: 0;
   margin: 20px;
+  list-style-type: none;
 }
 
 li {
@@ -127,70 +112,57 @@ li {
   align-items: center;
   margin: 10px;
   height: 40px;
+}
+
+.list-entry {
   border-radius: 5px;
   border-style: none;
 }
 
-.list-btn {
-  display: inline-block;
-  flex-grow: 1;
-  height: 40px;
-  margin-right: 10px;
-  padding: 0 20px;
-
-  background-color: inherit;
+.list-entry > * {
+  height: inherit;
+  padding: 0 15px;
+  background: inherit;
+  border: none;
   border-radius: 5px;
-  border-style: none;
+}
+
+.list-btn {
+  flex-grow: 1;
+  margin-right: 5px;
   text-align: left;
   font-weight: bolder;
 }
 
 .delete-list {
-  display: inline-block;
-  background: none;
-  border: none;
   text-align: center;
   font-size: 1.2em;
-  padding: 10px;
-  margin-right: 10px;
 }
 
-/* ========================= Page styles ================================== */
-.hidden {
-  display: none;
-}
+/* ========================== List Page Styles ============================= */
 
-/* ========================= Task Page ==================================== */
-
+/* Header styles */
 #listhead {
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
 }
 
-.home {
-  background-color: inherit;
+.home-btn {
+  margin: 0 30px;
+  padding: 20px;
   border: none;
   font-size: 3em;
-  display: inline-block;
-  padding: 20px;
-  margin: 0 30px;
+  background-color: inherit;
 }
 
-.listtitle {
-  display: inline-block;
+/* Item styles */
+
+.item {
   flex-grow: 1;
 }
 
-.task {
-  display: inline-block;
-  flex-grow: 1;
-  margin: 0;
-  padding: 0 20px;
-
-}
-
-.toggle-task {
+.toggle-item,
+.delete-item {
   display: inline-block;
   background: inherit;
   border: none;
@@ -200,49 +172,42 @@ li {
   margin-right: 10px;
 }
 
-.delete-task {
-  display: inline-block;
-  background: inherit;
-  border: none;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-  margin-right: 10px;
-}
-
-#add-task {
+/* Add item styles */
+#add-item {
   position: fixed;
   bottom: 0;
-  height: 60px;
+  height: 80px;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#form-task {
+#form-item {
   display: flex;
   align-items: center;
   flex-grow: 1;
   max-width: 600px;
 }
 
-#taskName {
-  border-radius: 5px;
-  border-style: solid;
-  height: 30px;
-  border-width: 1px;
+#itemName {
   flex-grow: 1;
+  height: 40px;
   margin-right: 10px;
   padding-left: 10px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
-.submit-task {
+.submit-item {
+  width: 40px;
+  height: 40px;
   border-radius: 10%;
-  border-style: none;
-  width: 30px;
-  height: 30px;
+  border: 1px solid;
 }
+
+
+/* =========== Media Queries =============================================== */
 
 @media (min-width: 600px) {
 

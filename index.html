@@ -19,7 +19,7 @@
           </button>
       </div>
 
-      <div class="add-list container">
+      <div class="container">
 
         <form name="listad" action="form.html" method="post">
 
@@ -38,40 +38,35 @@
           <button type="button" class="submit-list" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
 
         </form>
-      </div>
 
-      <div class="lists container">
-        <ul id="ullist">
+        <ul id="savedLists" >
           <!-- <li> elements will be added here as new lists are added by the user -->
         </ul>
       </div>
 
     </div>
 
-    <!-- ============================= Pages ============================ -->
+    <!-- =========================== List Pages ============================ -->
 
     <div id="listPage" class="hidden">
 
-      <div id="listnamepage">
-
         <div class="header" id="listhead">
-          <button type="button" class="home" onclick="switchPage()">
+          <button type="button" class="home-btn" onclick="switchPage()">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <h1 id="listtitle">List Name</h1>
+          <h1 id="list-title">List Name</h1>
         </div>
 
-
-        <div class="tasks container">
-          <ul id="ultask">
-            <!-- <li> elements will be added here as new tasks are added by the user -->
+        <div class="items container">
+          <ul id="savedItems">
+            <!-- <li> elements will be added here as new items are added by the user -->
           </ul>
         </div>
 
-        <div id="add-task">
-          <form  class="container" id="form-task" action="form.html" method="post">
-            <input type="text" id="taskName" placeholder="Add Item" >
-            <button type="button" class="submit-task" onclick="addTask(this.form)">
+        <div id="add-item">
+          <form  class="container" id="form-item" action="form.html" method="post">
+            <input type="text" id="itemName" placeholder="Add Item" >
+            <button type="button" class="submit-item" onclick="addItem(this.form)">
               <i class="fas fa-plus"></i>
             </button>
           </form>
@@ -79,7 +74,6 @@
 
       </div>
 
-    </div>
 
 
 
