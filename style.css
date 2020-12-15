@@ -157,6 +157,10 @@ li {
 
 /* Item styles */
 
+.items {
+  margin-bottom: 100px;
+}
+
 .item {
   flex-grow: 1;
 }

@@ -23,8 +23,6 @@
 
         <form name="listForm" action="form.html" method="post">
 
-          <input type="text" id="listName" placeholder="List Name">
-
           <select name="colour" id="listColour" class="fa" onchange="col(this.value)">
             <option value="" selected disabled>---</option>
             <option value="d4d4dd" class="fa">&#xf0c8;</option>
@@ -35,7 +33,9 @@
             <option value="ddace8" class="fa">&#xf0c8;</option>
           </select>
 
-          <button type="button" class="submit-list" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
+          <input type="text" id="listName" placeholder="List Name">
+
+          <button type="button" class="submit-list" id="submitList" onclick="addList(this.form)"><i class="fas fa-plus"></i></button>
 
         </form>
 
@@ -66,7 +66,7 @@
         <div id="add-item">
           <form  class="container" id="form-item" action="form.html" method="post">
             <input type="text" id="itemName" placeholder="Add Item" >
-            <button type="button" class="submit-item" onclick="addItem(this.form)">
+            <button type="button" class="submit-item" id="submitItem" onclick="addItem(this.form)">
               <i class="fas fa-plus"></i>
             </button>
           </form>

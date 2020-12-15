@@ -35,7 +35,7 @@ function refreshList () {
             <button type="button" class="list-btn" onclick="editPage(${i})">
             ${lists[i]['listName']}
             </button>
-            <button type="button" class="delete-list" onclick="deleteList(${lists[i]['listId']})">
+            <button type="button" class="delete-list" onclick="deleteList(${i})">
             <i class="far fa-trash-alt"></i>
             </button>
           </li> `;
@@ -57,10 +57,8 @@ function refreshList () {
 // This function deletes a list
 function deleteList (id) {
 
-  // filters out the list with listId = passed id
-  lists = lists.filter(i => {
-    return i["listId"] != id
-  });
+  // removes element with index id from the lists array
+  lists.splice(id,1)
 
   refreshList();
 };
@@ -171,3 +169,24 @@ if (data) {
 
 
 localStorage.setItem('ToDoLists', JSON.stringify(lists))
+
+// document.getElementById("listName").addEventListener("keyup", function(event) {
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     document.getElementById("submitList").click();
+//   }
+// });
+
+document.getElementById("listName").addEventListener("keypress", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("submitList").click();
+  }
+});
+
+document.getElementById("itemName").addEventListener("keypress", function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    document.getElementById("submitItem").click();
+  }
+});
